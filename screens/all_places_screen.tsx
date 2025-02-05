@@ -5,3 +5,4 @@ function AllPlacesScreen() {
 }
 
 export default AllPlacesScreen;
+
