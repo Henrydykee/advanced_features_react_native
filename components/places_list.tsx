@@ -1,5 +1,6 @@
 import { FlatList, Text, View, StyleSheet } from "react-native";
 import PlaceRenderItem from "./place_item";
+import { Colors } from "../utils/color";
 
 function PlacesList({ places }: { places: Place[] }) {
   if (places.length === 0) {
@@ -24,11 +25,11 @@ export default PlacesList;
 const styles = StyleSheet.create({
   fallbackContainer: {
     flex: 1,
-    // backgroundColor: '#fff',
     alignItems: "center",
     justifyContent: "center",
   },
   fallBackText: {
     fontSize: 16,
+    color: Colors.accent500,
   },
 });
