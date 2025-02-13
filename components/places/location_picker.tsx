@@ -3,8 +3,12 @@ import { Colors } from "../../utils/color";
 import { getCurrentPositionAsync , requestForegroundPermissionsAsync } from "expo-location";
 import getMapPreview from "../../utils/location";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
+
 function LocationPicker() {
 
+    const navigation = useNavigation();
     const [pickedLocation, setPickedLocation] = useState<{lat : number, lng : number} | null>(null);
 
     async function getLocationHandler (){
@@ -28,6 +32,7 @@ function LocationPicker() {
             Alert.alert("Permission not granted", "Please grant permission to use your location");
             return;
         }
+        navigation.navigate('Map' as never);
     }
 
     // if(pickedLocation != null){
@@ -42,7 +47,9 @@ function LocationPicker() {
             {pickedLocation && (
                 <Image style={styles.getMapPreview} source={{uri: getMapPreview(pickedLocation.lat, pickedLocation.lng)}}/>
             )}
+
             <View style={styles.actions}>
+
                 <Button title="Get User Location" onPress={getLocationHandler}/>
                 <Button title="Open Map" onPress={pickOnMapHandler}/>
 
@@ -67,7 +74,7 @@ const styles = StyleSheet.create({
         alignItems : "center",
     },
     getMapPreview:{
-        height:"100%",
+        height:"20%",
         width:"100%"
     }
 
