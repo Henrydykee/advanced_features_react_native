@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-
 import AddPlacesScreen from './screens/add_place_screen';
 import  { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
